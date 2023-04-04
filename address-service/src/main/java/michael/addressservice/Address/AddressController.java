@@ -1,4 +1,4 @@
-package com.michael.employeeservice.Employee;
+package michael.addressservice.Address;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,18 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @AllArgsConstructor
-
-public class EmployeeController {
+public class AddressController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private final AddressService addressService;
 
-    @GetMapping("/employees/{id}")
-    ResponseEntity<Employee> getEmployeeById(@PathVariable Long employeeId) {
-        return employeeService.getEmployeeById(employeeId);
+    @GetMapping("/address/{id}")
+    public ResponseEntity<Address> getAddressEmployee(@PathVariable Long id){
+        return addressService.getAddressEmployee(id);
     }
-
-
 }
+
